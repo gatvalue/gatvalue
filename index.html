@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>What's my gun worth?</title>
+<style>
+body {
+  font-family: Verdana, Arial, Sans-Serif;
+  font-size: 0.8em;
+}
+
+div {
+  display: none;
+  padding: 10px 10px 10px 10px;
+}
+
+#question, #but {
+  font-size: 1.2em;
+  font-weight: strong;
+}
+
+</style>
+</head>
+<body>
+<h1>What's my gun worth?</h1>
+<div id="question">What condition is it in?</div>
+<div id="answers">
+  <div class="answer"><a class="ans" href="#">Excellent</a></div>
+  <div class="answer"><a class="ans" href="#">Good</a></div>
+  <div class="answer"><a class="ans" href="#">Poor</a></div>
+</div>
+
+<div id="Excellent">About 15% less than the lowest advertised price on the Internet.</div>
+<div id="Good">About 30% less than the lowest advertised price on the Internet.</div>
+<div id="Poor">Whatever you can get for it.</div>
+
+<div id="but"><a href="#" class="but">What if has fancy mods?</a></div>
+<div id="butans">Then its probably worth less. Take all that stuff off and sell it as close to stock as possible. No one cares what you paid it in total.</div>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function() {
+
+  $("div#but").click(function() {
+    $("div#butans").show();
+  });
+
+  $("a.ans").click(function(e) {
+    var c = e.currentTarget.innerHTML;
+    $("#answers").hide();
+    $("div#"+c).show();
+    $("div#but").show();
+  });
+
+  $("#question").show();
+  $("#answers").show();
+  $("#answers div").show();
+
+});
+
+</script>
+</body>
+</html>
+
